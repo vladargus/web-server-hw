@@ -14,7 +14,9 @@ document.addEventListener('click', event => {
       event.target.dataset.title
     ).trim()
     if (title) {
-      edit(id, title)
+      edit(id, title).then(() => {
+        event.target.closest('li').querySelector('span').innerText = title
+      })
     }
   }
 })
